@@ -1,7 +1,20 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+
+
+.header-wrapper a{
+  background-color: blueviolet;
+  text-decoration: none;
+  margin-right:2rem;
+  color: white;
+  padding:1rem;
+  border-radius: 10px;
+
+}
+.header-wrapper{
+  width:100%;
+  display: block;
+  margin: 2rem 0rem;
+  display: flex;
   text-align: center;
+  justify-content: center;
 }
 
