@@ -1,67 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { TextField, Paper, Button } from "@mui/material";
-import { v4 as uuidv4 } from "uuid";
-import { useDispatch } from "react-redux";
-import { addUser } from "../Redux/Initial/Userslice";
-import { useNavigate } from "react-router-dom";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import TimeAgo from "react-timeago";
-import { parseISO } from "date-fns";
-import { formatDistanceToNow } from "date-fns/esm";
+import {
+  TextField,
+  Paper,
+  Button,
+  InputLabel,
+  Select,
+} from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
+import { getUser, clearUser, updateUser } from "../Redux/Initial/Userslice";
+import { Box } from "@mui/system";
+import { FormControl, MenuItem } from "@mui/material";
 import SideMenu from "./Common/SideMenu";
 
-const year2002 = new Date();
-
-const date = new Date().toISOString();
-const newdate = parseISO(date);
-let now = new Date().getTime();
-const timeperiod = formatDistanceToNow(newdate);
-var timeago = `${timeperiod} ago`;
-const AddPosts = () => {
+const EditUserPost = () => {
   const [age, setAge] = useState("");
 
-  console.log("------------->", age);
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { handleSubmit, control, reset, register } = useForm({
+  const { handleSubmit, control, reset } = useForm({
     defaultValues: {
-      id: uuidv4(),
       firstName: "",
       lastName: "",
-      Title: "",
+      title: "",
       address: "",
       phone: "",
       category: age,
       content:"",
-      time: now,
     },
   });
+
+  const params = useParams();
+  let history = useNavigate();
+  const dispatch = useDispatch();
+  const Users = useSelector((state) => state.User.User);
+  useEffect(() => {
+    dispatch(getUser(params.id));
+    return () => {
+      dispatch(clearUser());
+    };
+  }, []);
+
+  useEffect(() => {
+    reset(Users);
+  }, [Users]);
+
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-  console.log("timeeeeeeeeee", timeago);
-  localStorage.setItem("timeee", timeago);
   const onSubmit = (data) => {
-    console.log("awdawd", data);
-    localStorage.setItem("new-post", data);
-    dispatch(addUser(data));
-    reset({
-      firstName: "",
-      lastName: "",
-      Title: "",
-      address: "",
-      phone: "",
-      category: "",
-      content:"",
-
-    });
-    navigate("/");
+    dispatch(updateUser(data));
+    history("/");
   };
   return (
     <>
@@ -72,14 +60,7 @@ const AddPosts = () => {
 
         <div className="post-wrapper">
           <form onSubmit={handleSubmit(onSubmit)}>
-            {/* <TextField
-            inputProps={{ type: "hidden" }}
-            margin="normal"
-            {...register("id")}
-          /> */}
-
-
-<Controller
+            <Controller
               control={control}
               name="title"
               render={({ field }) => (
@@ -87,26 +68,24 @@ const AddPosts = () => {
                   id="title"
                   label="Title"
                   variant="outlined"
-                  color="secondary"
                   placeholder="Enter Your Title"
+                  color="secondary"
                   fullWidth
                   margin="normal"
                   {...field}
                 />
               )}
             />
-
             <Controller
               control={control}
               name="firstName"
               render={({ field }) => (
                 <TextField
-                className="field"
                   id="first-name"
                   label="First Name"
                   variant="outlined"
-                  color="secondary"
                   placeholder="Enter Your First Name"
+                  color="secondary"
                   fullWidth
                   margin="normal"
                   {...field}
@@ -122,15 +101,15 @@ const AddPosts = () => {
                   id="last-name"
                   label="Last Name"
                   variant="outlined"
-                  color="secondary"
                   placeholder="Enter Your Last Name"
+                  color="secondary"
                   fullWidth
                   margin="normal"
                   {...field}
                 />
               )}
             />
-          
+
             <Controller
               control={control}
               name="address"
@@ -139,8 +118,8 @@ const AddPosts = () => {
                   id="address"
                   label="Address"
                   variant="outlined"
-                  color="secondary"
                   placeholder="Enter Your Address"
+                  color="secondary"
                   fullWidth
                   margin="normal"
                   {...field}
@@ -163,7 +142,7 @@ const AddPosts = () => {
                 />
               )}
             />
-            <Controller
+           <Controller
               control={control}
               name="category"
               render={({ field }) => (
@@ -187,33 +166,24 @@ const AddPosts = () => {
                 </Box>
               )}
             />
+
             <Controller
               control={control}
-              name="content"
+              name="Content"
               render={({ field }) => (
                 <TextField
-                fullWidth
+                  fullWidth
                   id="outlined-multiline-static"
                   label="Content"
+                  
                   multiline
                   rows={4}
-                 color='secondary'
+                  color="secondary"
                   {...field}
                 />
               )}
             />
-            <Controller
-              control={control}
-              name="time"
-              render={({ field }) => (
-                <Box sx={{ minWidth: 120 }}>
-                  <TimeAgo date={newdate} {...field} />
-                </Box>
-              )}
-            />
-            <Button type="submit" color="secondary">
-              Create new Blog
-            </Button>
+            <Button type="submit">Update User</Button>
           </form>
         </div>
       </div>
@@ -221,4 +191,4 @@ const AddPosts = () => {
   );
 };
 
-export default AddPosts;
+export default EditUserPost;
