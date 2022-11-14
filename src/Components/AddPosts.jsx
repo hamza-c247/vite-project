@@ -38,7 +38,7 @@ const AddPosts = () => {
       Title: "",
       category: age,
       content: "",
-      created_time:year2002,
+      created_time:new Date(),
     },
   });
   const handleChange = (event) => {
@@ -165,15 +165,7 @@ const AddPosts = () => {
                 />
               )}
             />
-            <Controller
-              control={control}
-              name="time"
-              render={({ field }) => (
-                <Box sx={{ minWidth: 120 }}>
-                  <TimeAgo date={year2002} {...field} />
-                </Box>
-              )}
-            />
+           
             <Button type="submit" color="secondary">
               Create new Blog
             </Button>
