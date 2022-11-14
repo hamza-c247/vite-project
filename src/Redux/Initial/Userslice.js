@@ -9,77 +9,67 @@ export const Userslice = createSlice({
         title: "A Loving Heart is the Truest Wisdom",
         firstName: "Hamza",
         lastName: "Khan",
-        phone: "+91620-320-4125",
-      content:"A small river named Duden flows by their place and supplies it with the necessary regelialia.",
-
-        address: "474 Banerjee Fords",
+        created_time: "Mon Nov 14 2022 18:14:42 GMT+0530 (India Standard Time)",
+        content:
+          "A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.",
       },
       {
         id: 2,
         title: "Great Things Never Came from Comfort Zone",
         firstName: "Suyas",
         lastName: "karan",
-        phone: "+91953-928-4930",
-      content:"A small river named Duden flows by their place and supplies it with the necessary regelialia.",
-
-        address: "52520 Bhisham Brooks",
+        created_time: "Mon Nov 14 2022 18:14:42 GMT+0530 (India Standard Time)",
+        content:
+          "A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.",
       },
       {
         id: 3,
         title: "Paths Are Made by Walking",
         firstName: "Ashish",
         lastName: "Gpta",
-        phone: "+91-917-1416065",
-      content:"A small river named Duden flows by their place and supplies it with the necessary regelialia.",
-
-        address: "78079 Patel Park",
+        created_time: "Mon Nov 14 2022 18:14:42 GMT+0530 (India Standard Time)",
+        content:
+          "A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.",
       },
       {
         title: "The Secret of Getting Ahead is Getting Started",
         id: 4,
         firstName: "risabh",
         lastName: "joshi",
-        phone: "+91-644-6939697",
-      content:"A small river named Duden flows by their place and supplies it with the necessary regelialia.",
+        created_time: "Mon Nov 14 2022 18:14:42 GMT+0530 (India Standard Time)",
 
-        address: "57761 Shreyashi Junctions",
+        content:
+          "A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.vA small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.",
       },
       {
         title: "Even the all-powerful Pointing has no control",
         id: 5,
         firstName: "Bhum",
         lastName: "B",
-        phone: "+91-704-4124157",
-      content:"A small river named Duden flows by their place and supplies it with the necessary regelialia.",
+        created_time: "Mon Nov 14 2022 18:14:42 GMT+0530 (India Standard Time)",
 
-        address: "860 Gautama Turnpike",
+        content:
+          "A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.A small river named Duden flows by their place and supplies it with the necessary regelialia.",
       },
-     
     ],
-     
-
-    
 
     User: {
-      id:"",
+      id: "",
       firstName: "",
       lastName: "",
       title: "",
       address: "",
       phone: "",
-      category:"",
-      content:"",
+      category: "",
+      content: "",
 
-      time:"",
+      time: "",
     },
   },
   reducers: {
-    
     UserFavourite: (state, action) => {
-        state.Fav = [action.payload, ...state.Users];
-      
-  
-      },
+      state.Fav = [action.payload, ...state.Users];
+    },
 
     getUser: (state, action) => {
       state.User = state.Users.find((el) => el.id == action.payload);
@@ -89,18 +79,14 @@ export const Userslice = createSlice({
         firstName: "",
         lastName: "",
         title: "",
-        address: "",
-        phone: "",
-        category:"",
-      content:"",
-
-        time:""
+        category: "",
+        content: "",
+        time: "",
       };
     },
     addUser: (state, action) => {
       state.Users = [action.payload, ...state.Users];
-      localStorage.setItem("user", state.Users)
-
+      localStorage.setItem("user", state.Users);
     },
     updateUser: (state, action) => {
       state.Users = state.Users.map((el) =>
@@ -110,7 +96,6 @@ export const Userslice = createSlice({
     deleteUser: (state, action) => {
       state.Users = state.Users.filter((el) => el.id != action.payload);
     },
-  
   },
 });
 

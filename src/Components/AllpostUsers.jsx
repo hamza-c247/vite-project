@@ -1,46 +1,20 @@
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import {
-  Box,
-  Button,
-  Grid,
-  Paper,
-  Typography,
-  IconButton,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import {
-  addUser,
-  deleteUser,
-  getUser,
-  updateUser,
-  UserFavourite,
-} from "../Redux/Initial/Userslice";
-
+import { deleteUser } from "../Redux/Initial/Userslice";
 import { useDispatch, useSelector } from "react-redux";
 import TimeAgo from "react-timeago";
-import {
-  addFavUser,
-  deleteFavUser,
-  getFavUser,
-} from "../Redux/Initial/Favslice";
-import { useState } from "react";
+import { addFavUser, deleteFavUser } from "../Redux/Initial/Favslice";
+import { useEffect, useState } from "react";
+import { formatDistanceToNow, parseISO } from "date-fns";
 
 const AllpostUsers = ({ user }) => {
+  
   const [image, Setimage] = useState("false");
-  console.log(image);
-  const {
-    id,
-    firstName,
-    lastName,
-    title,
-    phone,
-    address,
-    category,
-    time,
-    content,
-  } = user;
+  const [isReadmore, SetisReadmore] = useState(false);
+  
+
+  const { id, firstName, lastName, title, category, created_time, content } =
+    user;
   const Favs = useSelector((state) => state.Fav.Favs);
 
   const dispatch = useDispatch();
@@ -48,15 +22,30 @@ const AllpostUsers = ({ user }) => {
     dispatch(deleteUser(id));
   };
 
-  const addtofavourite = (id) => {
+  useEffect(() => {
+    Favs.map((favuser) => {
+      if (favuser.id === id) {
+        Setimage("true");
+      }
+    });
+  });
+
+  const showContent = () => {
+    if (isReadmore) {
+      SetisReadmore(false);
+    } else {
+      SetisReadmore(true);
+    }
+  };
+
+  const addtofavourite = (userss) => {
     if (image === "false") {
       Setimage("true");
+      dispatch(addFavUser(userss));
     } else {
       Setimage("false");
+      dispatch(deleteFavUser(userss.id));
     }
-    dispatch(addFavUser(id));
-    console.log(id);
-    console.log(Favs);
   };
 
   return (
@@ -75,21 +64,20 @@ const AllpostUsers = ({ user }) => {
         <Typography variant="subtitle2" gutterBottom>
           Author- {firstName} {lastName}
         </Typography>
-        {/* <IconButton component={Link} to={`/students/${id}`}>
-            <VisibilityIcon />
-          </IconButton> */}
 
-        {/* <Typography variant="caption">{phone}</Typography>
-        
-        <Typography variant="caption">{address}</Typography> */}
         <p>Category--{category}</p>
-        <p>Content--{content}</p>
-        <h2>{time}</h2>
+        <p>{isReadmore ? content : content.slice(0, 100)}</p>
+        <button onClick={showContent}>
+          {isReadmore ? "...Read less" : "Read More"}
+        </button>
+        <h2>
+          ----time---- <TimeAgo date={created_time} />
+        </h2>
 
         <div className="icons-wrapper">
           <div>
             <img
-              onClick={() => addtofavourite(id)}
+              onClick={() => addtofavourite(user)}
               src={image === "false" ? "/bookmarkgrey.png" : "/bookmarkg.png"}
             />
           </div>

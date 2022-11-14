@@ -1,45 +1,27 @@
-import { Typography } from '@mui/material'
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Typography } from "@mui/material";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-const SideMenu = ({color}) => {
-    console.log(color)
+const SideMenu = ({ color }) => {
   return (
     <>
-    <div>
+      <div>
         <ul>
-          <li >
-           
-            <NavLink  to="/" style={{color: color}} >
-              HOME
-            </NavLink>
-           
-          </li>
           <li>
-            <NavLink to="/aboutus">
-              ABOUT US
+            <NavLink to="/" style={{ color: color }}>
+              All Blogs
             </NavLink>
           </li>
           <li>
-            <NavLink  to="/users">
-              USERS
-            </NavLink>
+            <NavLink to="/AddPosts">Create BLog</NavLink>
           </li>
           <li>
-            <NavLink  to="/post">
-              POST
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/Formsignup">
-              SIGN UP
-            </NavLink>
+            <NavLink to="/FavouritePosts">Favourite List</NavLink>
           </li>
         </ul>
       </div>
-      </>
-  )
-}
+    </>
+  );
+};
 
-export default SideMenu
+export default SideMenu;

@@ -24,6 +24,7 @@ const timeperiod = formatDistanceToNow(newdate);
 var timeago = `${timeperiod} ago`;
 const AddPosts = () => {
   const [age, setAge] = useState("");
+  
 
   console.log("------------->", age);
 
@@ -35,11 +36,9 @@ const AddPosts = () => {
       firstName: "",
       lastName: "",
       Title: "",
-      address: "",
-      phone: "",
       category: age,
-      content:"",
-      time: now,
+      content: "",
+      created_time:year2002,
     },
   });
   const handleChange = (event) => {
@@ -48,6 +47,7 @@ const AddPosts = () => {
   console.log("timeeeeeeeeee", timeago);
   localStorage.setItem("timeee", timeago);
   const onSubmit = (data) => {
+    
     console.log("awdawd", data);
     localStorage.setItem("new-post", data);
     dispatch(addUser(data));
@@ -55,11 +55,9 @@ const AddPosts = () => {
       firstName: "",
       lastName: "",
       Title: "",
-      address: "",
-      phone: "",
       category: "",
-      content:"",
-
+      content: "",
+      time: "",
     });
     navigate("/");
   };
@@ -72,14 +70,8 @@ const AddPosts = () => {
 
         <div className="post-wrapper">
           <form onSubmit={handleSubmit(onSubmit)}>
-            {/* <TextField
-            inputProps={{ type: "hidden" }}
-            margin="normal"
-            {...register("id")}
-          /> */}
-
-
-<Controller
+           
+            <Controller
               control={control}
               name="title"
               render={({ field }) => (
@@ -101,7 +93,7 @@ const AddPosts = () => {
               name="firstName"
               render={({ field }) => (
                 <TextField
-                className="field"
+                  className="field"
                   id="first-name"
                   label="First Name"
                   variant="outlined"
@@ -130,59 +122,30 @@ const AddPosts = () => {
                 />
               )}
             />
-          
-            <Controller
-              control={control}
-              name="address"
-              render={({ field }) => (
-                <TextField
-                  id="address"
-                  label="Address"
-                  variant="outlined"
-                  color="secondary"
-                  placeholder="Enter Your Address"
-                  fullWidth
-                  margin="normal"
-                  {...field}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="phone"
-              render={({ field }) => (
-                <TextField
-                  id="phone-number"
-                  label="Phone Number"
-                  variant="outlined"
-                  color="secondary"
-                  placeholder="Enter Your Phone Number"
-                  fullWidth
-                  margin="normal"
-                  {...field}
-                />
-              )}
-            />
+
+         
             <Controller
               control={control}
               name="category"
               render={({ field }) => (
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
-                  <InputLabel color='secondary' id="demo-simple-select-label">Age</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    color="secondary"
-                    id="category"
-                    value={age}
-                    label="Age"
-                    onChange={handleChange}
-                    {...field}
-                  >
-                    <MenuItem value={"ten"}>Ten</MenuItem>
-                    <MenuItem value={"twenty"}>Twenty</MenuItem>
-                    <MenuItem value={"thirty"}>Thirty</MenuItem>
-                  </Select>
+                    <InputLabel color="secondary" id="demo-simple-select-label">
+                      Age
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      color="secondary"
+                      id="category"
+                      value={age}
+                      label="Age"
+                      onChange={handleChange}
+                      {...field}
+                    >
+                      <MenuItem value={"ten"}>Ten</MenuItem>
+                      <MenuItem value={"twenty"}>Twenty</MenuItem>
+                      <MenuItem value={"thirty"}>Thirty</MenuItem>
+                    </Select>
                   </FormControl>
                 </Box>
               )}
@@ -192,12 +155,12 @@ const AddPosts = () => {
               name="content"
               render={({ field }) => (
                 <TextField
-                fullWidth
+                  fullWidth
                   id="outlined-multiline-static"
                   label="Content"
                   multiline
                   rows={4}
-                 color='secondary'
+                  color="secondary"
                   {...field}
                 />
               )}
@@ -207,7 +170,7 @@ const AddPosts = () => {
               name="time"
               render={({ field }) => (
                 <Box sx={{ minWidth: 120 }}>
-                  <TimeAgo date={newdate} {...field} />
+                  <TimeAgo date={year2002} {...field} />
                 </Box>
               )}
             />

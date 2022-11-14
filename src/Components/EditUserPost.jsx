@@ -25,7 +25,7 @@ const EditUserPost = () => {
       address: "",
       phone: "",
       category: age,
-      content:"",
+      content: "",
     },
   });
 
@@ -110,58 +110,30 @@ const EditUserPost = () => {
               )}
             />
 
+
+         
             <Controller
-              control={control}
-              name="address"
-              render={({ field }) => (
-                <TextField
-                  id="address"
-                  label="Address"
-                  variant="outlined"
-                  placeholder="Enter Your Address"
-                  color="secondary"
-                  fullWidth
-                  margin="normal"
-                  {...field}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="phone"
-              render={({ field }) => (
-                <TextField
-                  id="phone-number"
-                  label="Phone Number"
-                  variant="outlined"
-                  color="secondary"
-                  placeholder="Enter Your Phone Number"
-                  fullWidth
-                  margin="normal"
-                  {...field}
-                />
-              )}
-            />
-           <Controller
               control={control}
               name="category"
               render={({ field }) => (
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
-                  <InputLabel color='secondary' id="demo-simple-select-label">Age</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    color="secondary"
-                    id="category"
-                    value={age}
-                    label="Age"
-                    onChange={handleChange}
-                    {...field}
-                  >
-                    <MenuItem value={"ten"}>Ten</MenuItem>
-                    <MenuItem value={"twenty"}>Twenty</MenuItem>
-                    <MenuItem value={"thirty"}>Thirty</MenuItem>
-                  </Select>
+                    <InputLabel color="secondary" id="demo-simple-select-label">
+                      Age
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      color="secondary"
+                      id="category"
+                      value={age}
+                      label="Age"
+                      onChange={handleChange}
+                      {...field}
+                    >
+                      <MenuItem value={"ten"}>Ten</MenuItem>
+                      <MenuItem value={"twenty"}>Twenty</MenuItem>
+                      <MenuItem value={"thirty"}>Thirty</MenuItem>
+                    </Select>
                   </FormControl>
                 </Box>
               )}
@@ -169,13 +141,12 @@ const EditUserPost = () => {
 
             <Controller
               control={control}
-              name="Content"
+              name="content"
               render={({ field }) => (
                 <TextField
                   fullWidth
                   id="outlined-multiline-static"
                   label="Content"
-                  
                   multiline
                   rows={4}
                   color="secondary"
