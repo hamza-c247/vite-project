@@ -54,6 +54,7 @@ const EditUserPost = () => {
 
         <div className="post-wrapper">
           <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="input-wrapper">
             <Controller
               control={control}
               name="title"
@@ -70,6 +71,8 @@ const EditUserPost = () => {
                 />
               )}
             />
+            </div>
+            <div className="input-wrapper">
             <Controller
               control={control}
               name="firstName"
@@ -86,7 +89,8 @@ const EditUserPost = () => {
                 />
               )}
             />
-
+            </div>
+            <div className="input-wrapper">
             <Controller
               control={control}
               name="lastName"
@@ -103,7 +107,8 @@ const EditUserPost = () => {
                 />
               )}
             />
-
+            </div>
+            <div className="input-wrapper">
             <Controller
               control={control}
               name="category"
@@ -130,7 +135,8 @@ const EditUserPost = () => {
                 </Box>
               )}
             />
-
+            </div>
+             <div className="input-wrapper">
             <Controller
               control={control}
               name="content"
@@ -146,7 +152,16 @@ const EditUserPost = () => {
                 />
               )}
             />
-            <Button type="submit">Update User</Button>
+            </div>
+            <div className="btn-wrapper">
+              <button
+                className="btn-hover color-7"
+                type="submit"
+                color="secondary"
+              >
+                Update BLog
+              </button>
+            </div>
           </form>
         </div>
       </div>

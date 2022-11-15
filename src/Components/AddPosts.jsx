@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { TextField, Paper, Button } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Redux/Initial/Userslice";
@@ -52,102 +52,119 @@ const AddPosts = () => {
 
         <div className="post-wrapper">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Controller
-              control={control}
-              name="title"
-              render={({ field }) => (
-                <TextField
-                  id="title"
-                  label="Title"
-                  variant="outlined"
-                  color="secondary"
-                  placeholder="Enter Your Title"
-                  fullWidth
-                  margin="normal"
-                  {...field}
-                />
-              )}
-            />
+            <div className="input-wrapper">
+              <Controller
+                control={control}
+                name="title"
+                render={({ field }) => (
+                  <TextField
+                    id="title"
+                    label="Title"
+                    variant="outlined"
+                    color="secondary"
+                    placeholder="Enter Your Title"
+                    fullWidth
+                    margin="normal"
+                    {...field}
+                  />
+                )}
+              />
+            </div>
 
-            <Controller
-              control={control}
-              name="firstName"
-              render={({ field }) => (
-                <TextField
-                  className="field"
-                  id="first-name"
-                  label="First Name"
-                  variant="outlined"
-                  color="secondary"
-                  placeholder="Enter Your First Name"
-                  fullWidth
-                  margin="normal"
-                  {...field}
-                />
-              )}
-            />
-
-            <Controller
-              control={control}
-              name="lastName"
-              render={({ field }) => (
-                <TextField
-                  id="last-name"
-                  label="Last Name"
-                  variant="outlined"
-                  color="secondary"
-                  placeholder="Enter Your Last Name"
-                  fullWidth
-                  margin="normal"
-                  {...field}
-                />
-              )}
-            />
-
-            <Controller
-              control={control}
-              name="category"
-              render={({ field }) => (
-                <Box sx={{ minWidth: 120 }}>
-                  <FormControl fullWidth>
-                    <InputLabel color="secondary" id="demo-simple-select-label">
-                      Category
-                    </InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      color="secondary"
-                      id="category"
-                      value={age}
-                      label="Category"
-                      onChange={handleChange}
-                      {...field}
-                    >
-                      <MenuItem value={"Travel"}>Travel</MenuItem>
-                      <MenuItem value={"Sports"}>Sports</MenuItem>
-                      <MenuItem value={"Nature"}>Nature</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-              )}
-            />
-            <Controller
-              control={control}
-              name="content"
-              render={({ field }) => (
-                <TextField
-                  fullWidth
-                  id="outlined-multiline-static"
-                  label="Content"
-                  multiline
-                  rows={4}
-                  color="secondary"
-                  {...field}
-                />
-              )}
-            />
-            <Button type="submit" color="secondary">
-              Create new Blog
-            </Button>
+            <div className="input-wrapper">
+              <Controller
+                control={control}
+                name="firstName"
+                render={({ field }) => (
+                  <TextField
+                    className="field"
+                    id="first-name"
+                    label="First Name"
+                    variant="outlined"
+                    color="secondary"
+                    placeholder="Enter Your First Name"
+                    fullWidth
+                    margin="normal"
+                    {...field}
+                  />
+                )}
+              />
+            </div>
+            <div className="input-wrapper">
+              <Controller
+                control={control}
+                name="lastName"
+                render={({ field }) => (
+                  <TextField
+                    id="last-name"
+                    label="Last Name"
+                    variant="outlined"
+                    color="secondary"
+                    placeholder="Enter Your Last Name"
+                    fullWidth
+                    margin="normal"
+                    {...field}
+                  />
+                )}
+              />
+            </div>
+            <div className="input-wrapper">
+              <Controller
+                control={control}
+                name="category"
+                render={({ field }) => (
+                  <Box sx={{ minWidth: 120 }}>
+                    <FormControl fullWidth>
+                      <InputLabel
+                        color="secondary"
+                        id="demo-simple-select-label"
+                      >
+                        Category
+                      </InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        color="secondary"
+                        id="category"
+                        value={age}
+                        label="Category"
+                        onChange={handleChange}
+                        {...field}
+                      >
+                        <MenuItem value={"Travel"}>Travel</MenuItem>
+                        <MenuItem value={"Sports"}>Sports</MenuItem>
+                        <MenuItem value={"Nature"}>Nature</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Box>
+                )}
+              />
+            </div>
+            <div className="input-wrapper">
+              <Controller
+                control={control}
+                name="content"
+                render={({ field }) => (
+                  <TextField
+                    fullWidth
+                    id="outlined-multiline-static"
+                    label="Content"
+                    multiline
+                    rows={4}
+                    color="secondary"
+                    {...field}
+                  />
+                )}
+              />
+            </div>
+            <div className="btn-wrapper">
+              <button
+                className="btn-hover color-7"
+                type="submit"
+                color="secondary"
+              >
+                Create new Blog
+              </button>
+            </div>
           </form>
         </div>
       </div>

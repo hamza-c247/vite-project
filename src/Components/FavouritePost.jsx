@@ -38,9 +38,9 @@ const FavouritePost = () => {
       </div>
 
       <div className="Blog-heading">
-        <h3>
+        <h2>
           <i>Favourite Blogs</i>
-        </h3>
+        </h2>
       </div>
 
       {Favs.map((favpost) => {
@@ -68,7 +68,7 @@ const FavouritePost = () => {
                     ? favpost.content
                     : `${favpost.content.slice(0, 100)} ...`}
                 </p>
-                <button onClick={showContent}>
+                <button className="btn-hover1 color-7" onClick={showContent}>
                   {isReadmore ? "...Read less" : "Read More"}
                 </button>
                 <h2>

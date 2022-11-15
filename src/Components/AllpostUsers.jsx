@@ -64,7 +64,7 @@ const AllpostUsers = ({ user }) => {
 
         <p>Category--{category}</p>
         <p>{isReadmore ? content : `${content.slice(0, 100)} ...`}</p>
-        <button onClick={showContent}>
+        <button className="btn-hover1 color-7" onClick={showContent}>
           {isReadmore ? "...Read less" : "Read More"}
         </button>
         <h2>

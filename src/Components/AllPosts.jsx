@@ -24,7 +24,7 @@ const AllPosts = () => {
         <SideMenu></SideMenu>
       </div>
       <div className="Blog-heading">
-        <h3> <i>Recent Blogs</i></h3>
+        <h2> <i>Recent Blogs</i></h2>
       </div>
       <div className="blog-data">
         {Users.map((user) => (
