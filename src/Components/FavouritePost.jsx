@@ -10,8 +10,6 @@ import TimeAgo from "react-timeago";
 const FavouritePost = () => {
   const [isReadmore, SetisReadmore] = useState(false);
   const Favs = useSelector((state) => state.Fav.Favs);
-  console.log("-----------> favs", Favs);
-
   const dispatch = useDispatch();
   const handleDelete = (id) => {
     dispatch(deleteFavUser(id));

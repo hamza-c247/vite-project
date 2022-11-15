@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import {
-  TextField,
-  Button,
-  InputLabel,
-  Select,
-} from "@material-ui/core";
+import { TextField, Button, InputLabel, Select } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { getUser, clearUser, updateUser } from "../Redux/Initial/Userslice";

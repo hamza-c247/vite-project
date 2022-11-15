@@ -7,10 +7,8 @@ import { addFavUser, deleteFavUser } from "../Redux/Initial/Favslice";
 import { useEffect, useState } from "react";
 
 const AllpostUsers = ({ user }) => {
-  
   const [image, Setimage] = useState("false");
   const [isReadmore, SetisReadmore] = useState(false);
-  
 
   const { id, firstName, lastName, title, category, created_time, content } =
     user;

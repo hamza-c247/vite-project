@@ -5,6 +5,6 @@ import FavReducer from "./Initial/Favslice";
 export default configureStore({
   reducer: {
     User: UserReducer,
-    Fav: FavReducer
+    Fav: FavReducer,
   },
 });

@@ -16,7 +16,7 @@ const AddPosts = () => {
   const [age, setAge] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { handleSubmit, control, reset} = useForm({
+  const { handleSubmit, control, reset } = useForm({
     defaultValues: {
       id: uuidv4(),
       firstName: "",
@@ -111,7 +111,7 @@ const AddPosts = () => {
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
                     <InputLabel color="secondary" id="demo-simple-select-label">
-                     Category
+                      Category
                     </InputLabel>
                     <Select
                       labelId="demo-simple-select-label"

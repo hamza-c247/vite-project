@@ -1,13 +1,10 @@
-
-
-.header-wrapper a{
+.header-wrapper a {
   background-color: blueviolet;
   text-decoration: none;
-  margin-right:2rem;
+  margin-right: 2rem;
   color: white;
-  padding:1rem;
+  padding: 1rem;
   border-radius: 10px;
-
 }
 .header-wrapper {
   width: 100%;
@@ -17,7 +14,7 @@
   text-align: center;
   justify-content: center;
   /* background-color: black; */
-  position:fixed;
+  position: fixed;
 
   background: linear-gradient(70deg, black, transparent);
 }
@@ -73,7 +70,7 @@ li > a:hover {
   background: linear-gradient(272deg, #00e9ff, #c300ff);
 
   padding-left: 5rem;
- 
+
   position: fixed;
 }
 
@@ -245,12 +242,7 @@ li > a:hover {
   transform: translate(50%, -50%);
 }
 
-
-
-
-
 /* flex box  */
-
 
 .about-wrapper {
   margin-left: 20%;
@@ -284,60 +276,58 @@ li > a:hover {
   padding: 1rem;
 }
 
-.sidebar-wrapper{
+.sidebar-wrapper {
   display: flex;
 }
-.siderbar-outer{
+.siderbar-outer {
   background-color: black;
   color: white;
 }
 
-.post-wrapper{
-  width:40%;
+.post-wrapper {
+  width: 40%;
   margin: 5rem auto;
 }
 
-.field{
- border: 1px solid white !important
+.field {
+  border: 1px solid white !important;
 }
 
-
-.blog-data{
-  width:50%;
+.blog-data {
+  width: 50%;
   margin: 0 auto;
-  padding-top:5rem ;
+  padding-top: 5rem;
 }
 
-.single-post-wrapper{
-  border:1px solid #dddddd;
+.single-post-wrapper {
+  border: 1px solid #dddddd;
   padding: 2rem;
- 
+
   box-shadow: inset 5px 7px 19px -18px;
 }
 
-.Blog-heading h3{
+.Blog-heading h3 {
   text-align: center;
   margin: 0;
   padding-top: 6rem;
 }
 
-.blog-break{
-border-bottom: .5px solid rgb(226, 226, 226);
-margin:6rem 0px
+.blog-break {
+  border-bottom: 0.5px solid rgb(226, 226, 226);
+  margin: 6rem 0px;
 }
 
-.no-blogs{
+.no-blogs {
   text-align: center;
   font-size: 1.5rem;
-  border:2px solid gray;
+  border: 2px solid gray;
   padding: 2rem;
-  width:30%;
+  width: 30%;
   margin: 0 auto;
 }
 
-.icons-wrapper{
+.icons-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-

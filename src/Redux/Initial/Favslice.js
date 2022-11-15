@@ -3,16 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 export const Favslice = createSlice({
   name: "Favs",
   initialState: {
-    Favs: [
-
-    ],
+    Favs: [],
 
     Fav: {
       id: "",
       firstName: "",
       lastName: "",
       category: "",
-      content:"",
+      content: "",
       time: "",
     },
   },
@@ -25,7 +23,7 @@ export const Favslice = createSlice({
         firstName: "",
         lastName: "",
         category: "",
-        content:"",
+        content: "",
         time: "",
       };
     },
