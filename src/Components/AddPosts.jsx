@@ -10,27 +10,13 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import TimeAgo from "react-timeago";
-import { parseISO } from "date-fns";
-import { formatDistanceToNow } from "date-fns/esm";
 import SideMenu from "./Common/SideMenu";
 
-const year2002 = new Date();
-
-const date = new Date().toISOString();
-const newdate = parseISO(date);
-let now = new Date().getTime();
-const timeperiod = formatDistanceToNow(newdate);
-var timeago = `${timeperiod} ago`;
 const AddPosts = () => {
   const [age, setAge] = useState("");
-  
-
-  console.log("------------->", age);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { handleSubmit, control, reset, register } = useForm({
+  const { handleSubmit, control, reset} = useForm({
     defaultValues: {
       id: uuidv4(),
       firstName: "",
@@ -38,18 +24,14 @@ const AddPosts = () => {
       Title: "",
       category: age,
       content: "",
-      created_time:new Date(),
+      created_time: new Date(),
     },
   });
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-  console.log("timeeeeeeeeee", timeago);
-  localStorage.setItem("timeee", timeago);
+
   const onSubmit = (data) => {
-    
-    console.log("awdawd", data);
-    localStorage.setItem("new-post", data);
     dispatch(addUser(data));
     reset({
       firstName: "",
@@ -70,7 +52,6 @@ const AddPosts = () => {
 
         <div className="post-wrapper">
           <form onSubmit={handleSubmit(onSubmit)}>
-           
             <Controller
               control={control}
               name="title"
@@ -123,7 +104,6 @@ const AddPosts = () => {
               )}
             />
 
-         
             <Controller
               control={control}
               name="category"
@@ -131,20 +111,20 @@ const AddPosts = () => {
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
                     <InputLabel color="secondary" id="demo-simple-select-label">
-                      Age
+                     Category
                     </InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       color="secondary"
                       id="category"
                       value={age}
-                      label="Age"
+                      label="Category"
                       onChange={handleChange}
                       {...field}
                     >
-                      <MenuItem value={"ten"}>Ten</MenuItem>
-                      <MenuItem value={"twenty"}>Twenty</MenuItem>
-                      <MenuItem value={"thirty"}>Thirty</MenuItem>
+                      <MenuItem value={"Travel"}>Travel</MenuItem>
+                      <MenuItem value={"Sports"}>Sports</MenuItem>
+                      <MenuItem value={"Nature"}>Nature</MenuItem>
                     </Select>
                   </FormControl>
                 </Box>
@@ -165,7 +145,6 @@ const AddPosts = () => {
                 />
               )}
             />
-           
             <Button type="submit" color="secondary">
               Create new Blog
             </Button>

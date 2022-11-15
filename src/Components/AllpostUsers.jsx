@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import TimeAgo from "react-timeago";
 import { addFavUser, deleteFavUser } from "../Redux/Initial/Favslice";
 import { useEffect, useState } from "react";
-import { formatDistanceToNow, parseISO } from "date-fns";
 
 const AllpostUsers = ({ user }) => {
   
@@ -66,7 +65,7 @@ const AllpostUsers = ({ user }) => {
         </Typography>
 
         <p>Category--{category}</p>
-        <p>{isReadmore ? content : content.slice(0, 100)}</p>
+        <p>{isReadmore ? content : `${content.slice(0, 100)} ...`}</p>
         <button onClick={showContent}>
           {isReadmore ? "...Read less" : "Read More"}
         </button>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
   TextField,
-  Paper,
   Button,
   InputLabel,
   Select,
@@ -110,8 +109,6 @@ const EditUserPost = () => {
               )}
             />
 
-
-         
             <Controller
               control={control}
               name="category"
@@ -119,20 +116,20 @@ const EditUserPost = () => {
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
                     <InputLabel color="secondary" id="demo-simple-select-label">
-                      Age
+                      Category
                     </InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       color="secondary"
                       id="category"
                       value={age}
-                      label="Age"
+                      label="Category"
                       onChange={handleChange}
                       {...field}
                     >
-                      <MenuItem value={"ten"}>Ten</MenuItem>
-                      <MenuItem value={"twenty"}>Twenty</MenuItem>
-                      <MenuItem value={"thirty"}>Thirty</MenuItem>
+                      <MenuItem value={"Travel"}>Travel</MenuItem>
+                      <MenuItem value={"Sports"}>Sports</MenuItem>
+                      <MenuItem value={"Nature"}>Nature</MenuItem>
                     </Select>
                   </FormControl>
                 </Box>

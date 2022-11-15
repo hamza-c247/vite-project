@@ -1,21 +1,21 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteFavUser } from "../Redux/Initial/Favslice";
 import SideMenu from "./Common/SideMenu";
+import TimeAgo from "react-timeago";
 
 const FavouritePost = () => {
+  const [isReadmore, SetisReadmore] = useState(false);
   const Favs = useSelector((state) => state.Fav.Favs);
   console.log("-----------> favs", Favs);
-  
+
   const dispatch = useDispatch();
   const handleDelete = (id) => {
     dispatch(deleteFavUser(id));
   };
-
-
 
   const NoBlogs = () => {
     return (
@@ -25,7 +25,13 @@ const FavouritePost = () => {
     );
   };
 
-
+  const showContent = () => {
+    if (isReadmore) {
+      SetisReadmore(false);
+    } else {
+      SetisReadmore(true);
+    }
+  };
 
   return (
     <>
@@ -52,10 +58,6 @@ const FavouritePost = () => {
                   <Typography variant="h5" gutterBottom>
                     {favpost.title}
                   </Typography>
-                  {/* 
-          <Link to={`/students/${id}`}>
-            <img src="/setting.png"></img>
-          </Link> */}
                 </Box>
 
                 <Typography variant="subtitle2" gutterBottom>
@@ -63,28 +65,26 @@ const FavouritePost = () => {
                 </Typography>
 
                 <p>Category--{favpost.category}</p>
-                <p>Content--{favpost.content}</p>
-                <h2>----time----{favpost.time}</h2>
+                <p>
+                  {isReadmore
+                    ? favpost.content
+                    : `${favpost.content.slice(0, 100)} ...`}
+                </p>
+                <button onClick={showContent}>
+                  {isReadmore ? "...Read less" : "Read More"}
+                </button>
+                <h2>
+                  ----time---- <TimeAgo date={favpost.created_time} />
+                </h2>
 
                 <div className="icons-wrapper">
                   <div>
-            <img
-              onClick={() => handleDelete(favpost.id)}
-              src="/bookmarkg.png" 
-            />
-          </div>
-                  <div>
-                    {/* <div>
-              <Link to={`/Users/${id}/edit`}>
-                <img src="/edit.png"></img>
-              </Link>
-            </div> */}
-                    {/* <div>
-              <Link onClick={handleDelete}>
-                <img src="/delete.png"></img>
-              </Link>
-            </div> */}
+                    <img
+                      onClick={() => handleDelete(favpost.id)}
+                      src="/bookmarkg.png"
+                    />
                   </div>
+                  <div></div>
                 </div>
               </div>
             </div>
