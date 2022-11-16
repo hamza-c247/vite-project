@@ -8,8 +8,8 @@ const AllRoute = () => {
   return (
     <Routes>
       <Route exact path="/" element={<AllPosts />} />
-      <Route exact path="/AddPosts" element={<AddPosts />} />
-      <Route exact path="/FavouritePosts" element={<FavouritePost />} />
+      <Route exact path="/add_blogs" element={<AddPosts />} />
+      <Route exact path="/favourite_blogs" element={<FavouritePost />} />
       <Route exact path="/Users/:id/edit" element={<EditUserPost />} />
     </Routes>
   );

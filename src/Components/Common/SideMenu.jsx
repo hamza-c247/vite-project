@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+
 import React from "react";
 import { NavLink } from "react-router-dom";
 
@@ -13,10 +13,10 @@ const SideMenu = ({ color }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/AddPosts">Create BLog</NavLink>
+            <NavLink to="/add_blogs">Create BLog</NavLink>
           </li>
           <li>
-            <NavLink to="/FavouritePosts">Favourite List</NavLink>
+            <NavLink to="/favourite_blogs">Favourite List</NavLink>
           </li>
         </ul>
       </div>
