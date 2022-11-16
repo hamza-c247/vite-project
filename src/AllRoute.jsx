@@ -9,7 +9,6 @@ const AllRoute = () => {
     <Routes>
       <Route exact path="/" element={<AllPosts />} />
       <Route exact path="/AddPosts" element={<AddPosts />} />
-      <Route exact path="/AllPosts" element={<AllPosts />} />
       <Route exact path="/FavouritePosts" element={<FavouritePost />} />
       <Route exact path="/Users/:id/edit" element={<EditUserPost />} />
     </Routes>

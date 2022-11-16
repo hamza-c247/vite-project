@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { TextField, Button, InputLabel, Select } from "@material-ui/core";
+import { TextField, Button, InputLabel, Select } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { getUser, clearUser, updateUser } from "../Redux/Initial/Userslice";
-import { Box } from "@mui/system";
+import { Box } from "@mui/material";
 import { FormControl, MenuItem } from "@mui/material";
 import SideMenu from "./Common/SideMenu";
 
@@ -26,7 +26,7 @@ const EditUserPost = () => {
   const params = useParams();
   let history = useNavigate();
   const dispatch = useDispatch();
-  const Users = useSelector((state) => state.User.User);
+  const Users = useSelector((state) => state);
   useEffect(() => {
     dispatch(getUser(params.id));
     return () => {
@@ -36,6 +36,7 @@ const EditUserPost = () => {
 
   useEffect(() => {
     reset(Users);
+    console.log("awdpwdpwpdwd",Users)
   }, [Users]);
 
   const handleChange = (event) => {

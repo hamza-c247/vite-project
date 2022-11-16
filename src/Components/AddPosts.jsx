@@ -14,6 +14,8 @@ import SideMenu from "./Common/SideMenu";
 
 const AddPosts = () => {
   const [age, setAge] = useState("");
+  const [empty, setEmpty] = useState(true);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { handleSubmit, control, reset } = useForm({
@@ -21,7 +23,7 @@ const AddPosts = () => {
       id: uuidv4(),
       firstName: "",
       lastName: "",
-      Title: "",
+      title: "",
       category: age,
       content: "",
       created_time: new Date(),
@@ -32,11 +34,19 @@ const AddPosts = () => {
   };
 
   const onSubmit = (data) => {
-    dispatch(addUser(data));
+    if(data.firstName!=="" && data.lastName!=="" && data.title!=="" && data.category!=="" &&data.content!==""){
+      dispatch(addUser(data));
+      setEmpty(false)
+    }
+    else if(data.firstName==="" && data.lastName==="" && data.title==="" && data.category==="" &&data.content===""){
+      setEmpty(true)
+    }
+   
+  
     reset({
       firstName: "",
       lastName: "",
-      Title: "",
+      title: "",
       category: "",
       content: "",
       time: "",
@@ -44,7 +54,8 @@ const AddPosts = () => {
     navigate("/");
   };
   return (
-    <>
+
+    <>{ console.log(empty)}
       <div className="sidebar-wrapper">
         <div className="menubar">
           <SideMenu></SideMenu>
@@ -157,13 +168,23 @@ const AddPosts = () => {
               />
             </div>
             <div className="btn-wrapper">
-              <button
-                className="btn-hover color-7"
+
+              {empty? <button
+                className={`btn-hover color-7 `}
                 type="submit"
                 color="secondary"
+             
               >
                 Create new Blog
-              </button>
+              </button>: <button
+                className={`btn-hover color-7 `}
+                type="submit"
+                color="secondary"
+                disabled
+              >
+                Create new Blog
+              </button>}
+             
             </div>
           </form>
         </div>

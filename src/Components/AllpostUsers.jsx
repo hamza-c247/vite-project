@@ -17,6 +17,7 @@ const AllpostUsers = ({ user }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
     dispatch(deleteUser(id));
+   
   };
 
   useEffect(() => {
@@ -58,18 +59,20 @@ const AllpostUsers = ({ user }) => {
           </Link>
         </Box>
 
-        <Typography variant="subtitle2" gutterBottom>
-          Author- {firstName} {lastName}
-        </Typography>
+        <Box display="flex" alignItems="center">
+          <Typography variant="subtitle2" gutterBottom>
+            Author- {firstName} {lastName}
+          </Typography>
+          <Typography variant="subtitle2" gutterBottom>
+            <TimeAgo date={created_time} />
+          </Typography>
+        </Box>
 
         <p>Category--{category}</p>
-        <p>{isReadmore ? content : `${content.slice(0, 100)} ...`}</p>
+        <p>{isReadmore ? content : `${content&&content.slice(0, 100)} ...`}</p>
         <button className="btn-hover1 color-7" onClick={showContent}>
           {isReadmore ? "...Read less" : "Read More"}
         </button>
-        <h2>
-          ----time---- <TimeAgo date={created_time} />
-        </h2>
 
         <div className="icons-wrapper">
           <div>

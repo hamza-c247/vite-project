@@ -3,6 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 export const Userslice = createSlice({
   name: "user",
   initialState: {
+
+    data:[
+      {
+        id: "",
+        title: "",
+        firstName:"" ,
+        lastName:"",
+        created_time:"" ,
+        content:"",
+         
+      },
+    ],
     Users: [
       {
         id: 1,
@@ -94,7 +106,7 @@ export const Userslice = createSlice({
       );
     },
     deleteUser: (state, action) => {
-      state.Users = state.Users.filter((el) => el.id != action.payload);
+      state.data = state.data.filter((el) => el.id != action.payload);
     },
   },
 });

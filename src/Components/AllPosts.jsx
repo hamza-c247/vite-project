@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Grid } from "@material-ui/core";
 import AllpostUsers from "./AllpostUsers";
 import { useSelector } from "react-redux";
 import SideMenu from "./Common/SideMenu";
@@ -7,8 +6,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const AllPosts = () => {
   const Users = useSelector((state) => state.User.Users);
-  const [data, setData] = useState(Users);
-  const [page, setPage] = useState(0),
+  const [data, setData] = useState(Users.slice(0, 5));
+  const [page, setPage] = useState(1),
     maxPage = Math.ceil(data.length / 5);
 
   console.log("maxpage", maxPage);
@@ -22,6 +21,7 @@ const AllPosts = () => {
     // 20 more records in 1.5 secs
     setTimeout(() => {
       setPage((page + 1) % maxPage);
+      setData([...data, ...Users.slice(page * 5, page * 5 + 5)]);
     }, 1500);
   };
   console.log("page", (page + 1) % maxPage);
@@ -37,7 +37,10 @@ const AllPosts = () => {
   };
 
   return (
+
+    
     <>
+    {console.log("dataaa",data)}
       <div className="menubar">
         <SideMenu></SideMenu>
       </div>
@@ -52,11 +55,12 @@ const AllPosts = () => {
           dataLength={Users.length} //This is important field to render the next data
           next={fetchMoreData}
           hasMore={true}
-          onScroll={onPrevPage}
+          // onScroll={onPrevPage}
           loader={<h4>Loading...</h4>}
         >
-          {data.slice(page * 5, 5 * (page + 1)).map((user) => (
+          {data.map((user) => (
             <AllpostUsers key={user.id} user={user} />
+          
           ))}
         </InfiniteScroll>
       </div>
