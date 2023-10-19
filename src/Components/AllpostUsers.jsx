@@ -13,12 +13,14 @@ const AllpostUsers = ({ user }) => {
   const { id, firstName, lastName, title, category, created_time, content } =
     user;
   const Favs = useSelector((state) => state.Fav.Favs);
+  const Users = useSelector((state) => state.User.Data);
 
   const dispatch = useDispatch();
   const handleDelete = () => {
+    console.log("iddddddddd", Users);
     dispatch(deleteUser(id));
-   
   };
+  
 
   useEffect(() => {
     Favs.map((favuser) => {
@@ -54,22 +56,24 @@ const AllpostUsers = ({ user }) => {
             {title}
           </Typography>
 
-          <Link to={`/students/${id}`}>
+          <Link to={`Blog/author/${id}`}>
             <img src="/setting.png"></img>
           </Link>
         </Box>
 
-        <Box display="flex" alignItems="center">
-          <Typography variant="subtitle2" gutterBottom>
-            Author- {firstName} {lastName}
-          </Typography>
-          <Typography variant="subtitle2" gutterBottom>
+        <div className="author-wrapper">
+          <p >
+            By {firstName} {lastName}
+          </p>
+          <p>
             <TimeAgo date={created_time} />
-          </Typography>
-        </Box>
+          </p>
+        </div>
 
-        <p>Category--{category}</p>
-        <p>{isReadmore ? content : `${content&&content.slice(0, 100)} ...`}</p>
+        <p className={category==="Travel"?"travel-tag":category==="Sports"?"sports-tag":category==="Nature"?"nature-tag":""}>{category}</p>
+        <p>
+          {isReadmore ? content : `${content && content.slice(0, 100)} ...`}
+        </p>
         <button className="btn-hover1 color-7" onClick={showContent}>
           {isReadmore ? "...Read less" : "Read More"}
         </button>

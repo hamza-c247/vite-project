@@ -9,6 +9,7 @@ import { FormControl, MenuItem } from "@mui/material";
 import SideMenu from "./Common/SideMenu";
 
 const EditUserPost = () => {
+  const Users = useSelector((state) => state.User.User);
   const [age, setAge] = useState("");
 
   const { handleSubmit, control, reset } = useForm({
@@ -22,11 +23,13 @@ const EditUserPost = () => {
       content: "",
     },
   });
+  
 
   const params = useParams();
   let history = useNavigate();
   const dispatch = useDispatch();
-  const Users = useSelector((state) => state);
+ 
+
   useEffect(() => {
     dispatch(getUser(params.id));
     return () => {
@@ -45,6 +48,7 @@ const EditUserPost = () => {
   const onSubmit = (data) => {
     dispatch(updateUser(data));
     history("/");
+    console.log("dataaaaa",data)
   };
   return (
     <>

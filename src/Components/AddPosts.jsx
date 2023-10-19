@@ -34,15 +34,25 @@ const AddPosts = () => {
   };
 
   const onSubmit = (data) => {
-    if(data.firstName!=="" && data.lastName!=="" && data.title!=="" && data.category!=="" &&data.content!==""){
+    if (
+      data.firstName !== "" &&
+      data.lastName !== "" &&
+      data.title !== "" &&
+      data.category !== "" &&
+      data.content !== ""
+    ) {
       dispatch(addUser(data));
-      setEmpty(false)
+      setEmpty(false);
+    } else if (
+      data.firstName === "" &&
+      data.lastName === "" &&
+      data.title === "" &&
+      data.category === "" &&
+      data.content === ""
+    ) {
+      setEmpty(true);
     }
-    else if(data.firstName==="" && data.lastName==="" && data.title==="" && data.category==="" &&data.content===""){
-      setEmpty(true)
-    }
-   
-  
+
     reset({
       firstName: "",
       lastName: "",
@@ -54,8 +64,8 @@ const AddPosts = () => {
     navigate("/");
   };
   return (
-
-    <>{ console.log(empty)}
+    <>
+      {console.log(empty)}
       <div className="sidebar-wrapper">
         <div className="menubar">
           <SideMenu></SideMenu>
@@ -168,23 +178,24 @@ const AddPosts = () => {
               />
             </div>
             <div className="btn-wrapper">
-
-              {empty? <button
-                className={`btn-hover color-7 `}
-                type="submit"
-                color="secondary"
-             
-              >
-                Create new Blog
-              </button>: <button
-                className={`btn-hover color-7 `}
-                type="submit"
-                color="secondary"
-                disabled
-              >
-                Create new Blog
-              </button>}
-             
+              {empty ? (
+                <button
+                  className={`btn-hover color-7 `}
+                  type="submit"
+                  color="secondary"
+                >
+                  Create new Blog
+                </button>
+              ) : (
+                <button
+                  className={`btn-hover color-7 `}
+                  type="submit"
+                  color="secondary"
+                  disabled
+                >
+                  Create new Blog
+                </button>
+              )}
             </div>
           </form>
         </div>

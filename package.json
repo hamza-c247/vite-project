@@ -33,5 +33,8 @@
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
     "vite": "^3.2.3"
+  },
+  "volta": {
+    "node": "16.18.1"
   }
 }

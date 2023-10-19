@@ -116,7 +116,6 @@ li > a:hover {
 
 .post_wrapper {
   padding-left: 22%;
-  
 }
 
 .user_wrapper {
@@ -296,13 +295,12 @@ li > a:hover {
   border-radius: 10px;
 }
 
-
 .field {
   border: 1px solid white !important;
 }
 
 .blog-data {
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
   padding: 3rem 0px;
 }
@@ -310,7 +308,7 @@ li > a:hover {
 .single-post-wrapper {
   border: 1px solid #dddddd;
   padding: 2rem;
- background-color: white;
+  background-color: white;
   box-shadow: inset 5px 7px 19px -18px;
   border-radius: 10px;
 }
@@ -322,7 +320,7 @@ li > a:hover {
 }
 
 .blog-break {
-  border-bottom: 0.5px solid rgb(0 217 255);;
+  border-bottom: 0.5px solid rgb(0 217 255);
   margin: 6rem 0px;
 }
 
@@ -341,7 +339,7 @@ li > a:hover {
   align-items: center;
 }
 
-.input-wrapper{
+.input-wrapper {
   margin-bottom: 2rem;
 }
 
@@ -358,23 +356,23 @@ li > a:hover {
   cursor: pointer;
   margin: 20px;
   height: 55px;
-  text-align:center;
+  text-align: center;
   border: none;
   background-size: 300% 100%;
 
   border-radius: 50px;
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn-hover:hover {
   background-position: 100% 0;
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn-hover:focus {
@@ -382,20 +380,25 @@ li > a:hover {
 }
 
 .btn-hover.color-7 {
-  background-image: linear-gradient(to right, #29dfff, #e20cff, #b905ff, #00fffb);
+  background-image: linear-gradient(
+    to right,
+    #29dfff,
+    #e20cff,
+    #b905ff,
+    #00fffb
+  );
   box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
 }
-.btn-wrapper{
+.btn-wrapper {
   text-align: center;
 }
 
-
 .btn-hover1:hover {
   background-position: 100% 0;
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn-hover1:focus {
@@ -403,8 +406,13 @@ li > a:hover {
 }
 
 .btn-hover1.color-7 {
-  background-image: linear-gradient(to right, #29dfff, #e20cff, #b905ff, #00fffb);
-  
+  background-image: linear-gradient(
+    to right,
+    #29dfff,
+    #e20cff,
+    #b905ff,
+    #00fffb
+  );
 }
 .btn-hover1 {
   width: 83px;
@@ -418,10 +426,10 @@ li > a:hover {
   border: none;
   background-size: 300% 100%;
   border-radius: 50px;
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 input:autofill-selected {
@@ -429,4 +437,43 @@ input:autofill-selected {
   background-image: none !important;
   background-color: (rgb(0, 94, 255), rgba(70, 90, 126, 0.4)) !important;
   color: fieldtext !important;
+}
+
+.author-wrapper {
+  display: flex;
+}
+
+.author-wrapper > p {
+  color: grey;
+  margin-right: 2rem;
+}
+.travel-tag {
+  background-color: #a200ff;
+  text-align: center;
+  width: 6rem;
+  margin: 0 auto;
+  padding: 2px;
+  border-radius: 4px;
+  color: white;
+}
+
+.nature-tag {
+  background-color: #ff9d00;
+  text-align: center;
+  width: 6rem;
+  margin: 0 auto;
+  padding: 2px;
+  border-radius: 4px;
+  color: white;
+
+}
+.sports-tag {
+  background-color: #0077ff;
+  text-align: center;
+  width: 6rem;
+  margin: 0 auto;
+  padding: 2px;
+  border-radius: 4px;
+  color: white;
+
 }
